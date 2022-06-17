@@ -1,4 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../wiget/email_input_field.dart';
+import '../wiget/password_input_field.dart';
 
 class SingUpPage extends StatelessWidget {
   const SingUpPage({Key? key}) : super(key: key);
@@ -14,6 +19,7 @@ class SingUpPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      // appBar: AppBar(backgroundColor: Colors.transparent),
       backgroundColor: Colors.white,
       body: SafeArea(
           child: SingleChildScrollView(
@@ -48,22 +54,13 @@ class SingUpPage extends StatelessWidget {
                   SizedBox(
                     height: 50,
                   ),
-                  text_input_Field(),
+                  Text_input_Field(email: "Email"),
                   SizedBox(
                     height: 20,
                   ),
-                  text_input_Field(),
+                  Password_input_Field(password: "Password"),
                   SizedBox(
                     height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(child: Container()),
-                      Text(
-                        "Sign into your account",
-                        style: TextStyle(fontSize: 20, color: Colors.grey[500]),
-                      ),
-                    ],
                   ),
                 ],
               ),
@@ -89,6 +86,23 @@ class SingUpPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
+            RichText(
+                text: TextSpan(
+                    text: "Have an account?",
+                    style: TextStyle(fontSize: 20, color: Colors.grey[500]),
+                    children: [
+                  TextSpan(
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = (() => Get.back()),
+                      text: " Login Page",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(234, 221, 100, 100),
+                          fontWeight: FontWeight.bold))
+                ])),
             SizedBox(
               height: width * 0.04,
             ),
@@ -118,29 +132,4 @@ class SingUpPage extends StatelessWidget {
       )),
     );
   }
-}
-
-Container text_input_Field() {
-  return Container(
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-              blurRadius: 10,
-              spreadRadius: 7,
-              offset: Offset(1, 1),
-              color: Colors.grey.withOpacity(0.2))
-        ]),
-    child: TextField(
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.white, width: 1.0)),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.white, width: 1.0)),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
-    ),
-  );
 }

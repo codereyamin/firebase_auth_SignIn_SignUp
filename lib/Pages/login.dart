@@ -1,4 +1,9 @@
+import 'package:auth_firebase_signup_login/Pages/signup.dart';
+import 'package:auth_firebase_signup_login/wiget/email_input_field.dart';
+import 'package:auth_firebase_signup_login/wiget/password_input_field.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -43,11 +48,11 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 50,
                   ),
-                  text_input_Field(),
+                  Text_input_Field(email: "Email"),
                   SizedBox(
                     height: 20,
                   ),
-                  text_input_Field(),
+                  Password_input_Field(password: "Password"),
                   SizedBox(
                     height: 20,
                   ),
@@ -95,40 +100,19 @@ class _LoginPageState extends State<LoginPage> {
                     TextSpan(
                         text: "Create",
                         style: TextStyle(
-                            color: Colors.black26,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
+                          color: Colors.black26,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = (() {
+                            Get.to(() => SingUpPage());
+                          })),
                   ]),
             )
           ],
         ),
       )),
-    );
-  }
-
-  Container text_input_Field() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-                blurRadius: 10,
-                spreadRadius: 7,
-                offset: Offset(1, 1),
-                color: Colors.grey.withOpacity(0.2))
-          ]),
-      child: TextField(
-        decoration: InputDecoration(
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.white, width: 1.0)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.white, width: 1.0)),
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
-      ),
     );
   }
 }
