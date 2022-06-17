@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "94280991376",
+    "project_id": "signup-login-f371c",
+    "storage_bucket": "signup-login-f371c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94280991376:android:2b791a373ca5d8259ace15",
+        "android_client_info": {
+          "package_name": "com.example.auth_firebase_signup_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94280991376-093ruf1jjp35m8cc2fgfi82g3irof017.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe582RnCbtY16AntSWHvXMq-jDMMFuSew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94280991376-093ruf1jjp35m8cc2fgfi82g3irof017.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
