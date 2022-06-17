@@ -17,6 +17,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -48,11 +50,15 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 50,
                   ),
-                  Text_input_Field(email: "Email"),
+                  Text_input_Field(
+                      email: "Email",
+                      emailcontroler: emailController.toString()),
                   SizedBox(
                     height: 20,
                   ),
-                  Password_input_Field(password: "Password"),
+                  Password_input_Field(
+                      password: "Password",
+                      passwordcontroler: passwordController.toString()),
                   SizedBox(
                     height: 20,
                   ),

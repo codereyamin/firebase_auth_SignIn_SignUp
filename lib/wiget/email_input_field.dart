@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Text_input_Field extends StatelessWidget {
-  const Text_input_Field({Key? key, required this.email}) : super(key: key);
+  const Text_input_Field(
+      {Key? key, required this.email, required this.emailcontroler})
+      : super(key: key);
 
   @override
   final String email;
+  final String emailcontroler;
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -18,6 +21,7 @@ class Text_input_Field extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2))
           ]),
       child: TextField(
+        controller: TextEditingController(),
         decoration: InputDecoration(
             hintText: email,
             prefixIcon: Icon(Icons.email),

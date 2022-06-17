@@ -1,3 +1,4 @@
+import 'package:auth_firebase_signup_login/auth/authcontroler.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,8 @@ class SingUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     List images = [
       "g.png",
       "t.png",
@@ -54,11 +57,15 @@ class SingUpPage extends StatelessWidget {
                   SizedBox(
                     height: 50,
                   ),
-                  Text_input_Field(email: "Email"),
+                  Text_input_Field(
+                      email: "Email",
+                      emailcontroler: emailController.toString()),
                   SizedBox(
                     height: 20,
                   ),
-                  Password_input_Field(password: "Password"),
+                  Password_input_Field(
+                      password: "Password",
+                      passwordcontroler: passwordController.toString()),
                   SizedBox(
                     height: 20,
                   ),
@@ -68,21 +75,27 @@ class SingUpPage extends StatelessWidget {
             SizedBox(
               height: width * 0.05,
             ),
-            Container(
-              width: width * 0.5,
-              height: height * 0.08,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                      image: AssetImage("lib/img/loginbtn.png"),
-                      fit: BoxFit.cover)),
-              child: Center(
-                child: Text(
-                  "Sign in",
-                  style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+            GestureDetector(
+              onTap: () {
+                AuthController.Instance.register(
+                    emailController.text.trim(), passwordController.text);
+              },
+              child: Container(
+                width: width * 0.5,
+                height: height * 0.08,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: DecorationImage(
+                        image: AssetImage("lib/img/loginbtn.png"),
+                        fit: BoxFit.cover)),
+                child: Center(
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ),

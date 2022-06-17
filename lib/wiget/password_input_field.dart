@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Password_input_Field extends StatelessWidget {
-  const Password_input_Field({Key? key, required this.password})
+  const Password_input_Field(
+      {Key? key, required this.password, required this.passwordcontroler})
       : super(key: key);
 
   @override
   final String password;
+  final String passwordcontroler;
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -19,6 +21,7 @@ class Password_input_Field extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2))
           ]),
       child: TextField(
+        controller: TextEditingController(),
         obscureText: true,
         decoration: InputDecoration(
             hintText: password,
