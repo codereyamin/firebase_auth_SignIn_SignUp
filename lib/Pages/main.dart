@@ -1,7 +1,9 @@
+import 'package:auth_firebase_signup_login/auth/authcontroler.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  String email;
+  MainPage({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class MainPage extends StatelessWidget {
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
                           color: Colors.black54)),
-                  Text("a@gmail.com",
+                  Text(email,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -69,21 +71,26 @@ class MainPage extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: width * 0.5,
-              height: height * 0.08,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                      image: AssetImage("lib/img/loginbtn.png"),
-                      fit: BoxFit.cover)),
-              child: Center(
-                child: Text(
-                  "Log out",
-                  style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+            GestureDetector(
+              onTap: () {
+                AuthController.Instance.LogOut();
+              },
+              child: Container(
+                width: width * 0.5,
+                height: height * 0.08,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: DecorationImage(
+                        image: AssetImage("lib/img/loginbtn.png"),
+                        fit: BoxFit.cover)),
+                child: Center(
+                  child: Text(
+                    "Log out",
+                    style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ),

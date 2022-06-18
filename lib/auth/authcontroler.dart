@@ -21,13 +21,16 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => LoginPage());
     } else {
-      Get.offAll(() => MainPage());
+      Get.offAll(() => MainPage(
+            email: user.email!,
+          ));
     }
   }
 
-  void register(String email, password) {
+  void register(String email, password) async {
     try {
-      auth.createUserWithEmailAndPassword(email: email, password: password);
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } catch (e) {
       Get.snackbar("About User", "user message",
           backgroundColor: Colors.redAccent,
@@ -41,5 +44,27 @@ class AuthController extends GetxController {
             style: TextStyle(color: Colors.white),
           ));
     }
+  }
+
+  void Login(String email, password) async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      Get.snackbar("About login", "login message",
+          backgroundColor: Colors.redAccent,
+          snackPosition: SnackPosition.BOTTOM,
+          titleText: Text(
+            "Login faild",
+            style: TextStyle(color: Colors.white),
+          ),
+          messageText: Text(
+            e.toString(),
+            style: TextStyle(color: Colors.white),
+          ));
+    }
+  }
+
+  void LogOut() async {
+    await auth.signOut();
   }
 }

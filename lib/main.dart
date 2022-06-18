@@ -1,8 +1,9 @@
-import 'package:auth_firebase_signup_login/Pages/login.dart';
 import 'package:auth_firebase_signup_login/auth/authcontroler.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'Pages/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: SpleshScreen(),
     );
   }
 }
